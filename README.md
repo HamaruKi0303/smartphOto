@@ -1,7 +1,7 @@
 # smartphOto
 
+![](https://github.com/HamaruKi0303/smartphOto/blob/main/doc/structure2.png)
 
-![](doc\structure2.png)
 
 ## 環境の構築
 
@@ -128,6 +128,8 @@ adb -s {シリアル} pull /sdcard/screenshot.png ~/Desktop/
 ```
 
 
-![](image\_capture\screenshot_demo.png)
+![](https://i.imgur.com/IJYv4GC.jpg)
+
+![](https://github.com/HamaruKi0303/smartphOto/blob/main/image/_capture/screenshot_demo.png)
 
 
