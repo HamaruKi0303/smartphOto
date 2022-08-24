@@ -1,1 +1,1 @@
-conda activate autoroid
+conda activate smartphOto_v1
