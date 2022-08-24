@@ -216,3 +216,15 @@ max value:  1.000, position: (1932, 913), temp_path: image\sample\back.png
 max value:  0.290, position: (307, 348), temp_path: image\sample\back.png
 max value:  0.305, position: (1047, 305), temp_path: image\sample\back.png
 ```
+
+
+# Desk0to
+
+## 環境の構築
+
+### 必要パッケージのインストール
+
+```
+pip install pyautogui
+```
+
