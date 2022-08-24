@@ -73,20 +73,61 @@ wincertstore  0.2
 
 
 
-## ADBコマンド
+## スマホと接続
+
+### デバイス一覧
 
 ```
 adb devices
 ```
 
-./sdk/platform-tools_r33.0.2-windows/platform-tools/adb devices
+```
+(smartphOto_v1) D:\Local_Project\5000_HaMaruki\5000.003_smartphOto\smartphOto>.\sdk\platform-tools_r33.0.2-windows\platform-tools\adb devices 
+* daemon not running; starting now at tcp:5037
+* daemon started successfully
+List of devices attached
+d7b42150        unauthorized
+```
+
+### 画面タップ
+
+#### テンプレート
 
 ```
-adb -s f6a19bcb shell input touchscreen tap x y
+adb -s {シリアル} shell input touchscreen tap x y
 ```
 
+#### 実行コマンド
+
+```
+.\sdk\platform-tools_r33.0.2-windows\platform-tools\adb -s d7b42150 shell input touchscreen tap 300 300
+```
+
+
+### 画面キャプチャー
+
+#### テンプレート
 
 ```
 adb -s {シリアル} shell screencap -p /sdcard/screenshot.png
+```
+
+```
 adb -s {シリアル} pull /sdcard/screenshot.png ~/Desktop/
 ```
+
+#### 実行コマンド
+
+```
+.\sdk\platform-tools_r33.0.2-windows\platform-tools\adb -s d7b42150 shell screencap -p /sdcard/screenshot.png
+```
+
+```
+(smartphOto_v1) D:\Local_Project\5000_HaMaruki\5000.003_smartphOto\smartphOto>.\sdk\platform-tools_r33.0.2-windows\platform-tools\adb -s d7b42150 pull /sdcard/screenshot.png image\_capture\
+/sdcard/screenshot.png: 1 file pulled, 0 skipped. 15.8 MB/s (87028 bytes in 0.005s)
+```
+
+
+![](image\_capture\screenshot_demo.png)
+
+
