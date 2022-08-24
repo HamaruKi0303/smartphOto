@@ -8,7 +8,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '.'))
 
 import modules.SmartphOto as SmartphOto
 
-class Sample(SmartphOto.SmartphOto):
+class QuantumMaki(SmartphOto.SmartphOto):
     def __init__(self, device_id, adb_exe_path, temp_dir, capture_dir, search_th):
         super().__init__(device_id=device_id, adb_exe_path=adb_exe_path, temp_dir=temp_dir, capture_dir=capture_dir, search_th=search_th)
 
@@ -19,8 +19,17 @@ class Sample(SmartphOto.SmartphOto):
             # --------------------------------------------
             # sample tap
             #
-            self.tap_temp_image5_Sequential(r"image\sample\back.png", th=0.8)
-
+            
+            self.tap_temp_image5_Sequential(r"image\QuantumMaki\ok.png", th=0.8)
+            
+            self.tap_temp_image5_Sequential(r"image\QuantumMaki\choice_stage.png", th=0.8)
+            self.tap_temp_image5_Sequential(r"image\QuantumMaki\battle_start.png", th=0.8)
+            self.tap_temp_image5_Sequential(r"image\QuantumMaki\skip.png", th=0.8)
+            self.tap_temp_image5_Sequential(r"image\QuantumMaki\skip2.png", th=0.8)
+            self.tap_temp_image5_Sequential(r"image\QuantumMaki\back.png", th=0.8)
+            
+            self.tap_temp_image5_Sequential(r"image\QuantumMaki\new_stage.png", th=0.8)
+            
             time.sleep(2)
 
 
@@ -31,13 +40,13 @@ if __name__ == "__main__":
     #
     adb_exe_path    = r"D:\Local_Project\5000_HaMaruki\5000.003_smartphOto\smartphOto\sdk\platform-tools_r33.0.2-windows\platform-tools\adb.exe"
     device_id       = "d7b42150"
-    temp_dir        = r"image\sample"
+    temp_dir        = r"image\QuantumMaki"
     capture_dir     = r"image\_capture"
 
     # ---------------------------------------------------
     # connect smartphone 2 pc
     #
-    S2P = Sample(device_id=device_id, adb_exe_path=adb_exe_path, temp_dir=temp_dir, capture_dir=capture_dir, search_th=0.7)
+    S2P = QuantumMaki(device_id=device_id, adb_exe_path=adb_exe_path, temp_dir=temp_dir, capture_dir=capture_dir, search_th=0.7)
 
     # =================================================
     # capture image
@@ -53,4 +62,5 @@ if __name__ == "__main__":
     # main
     #
     S2P.main_Sequential()
+
 

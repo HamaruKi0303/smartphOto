@@ -27,6 +27,7 @@ conda info -e
 ```
 pip install opencv-python
 pip install pandas
+pip install matplotlib
 ```
 
 ### 確認コード
@@ -61,14 +62,25 @@ Hello !!!!
 ```
 (smartphOto_v1) D:\Local_Project\5000_HaMaruki\5000.003_smartphOto\smartphOto>pip list
 Package       Version
-------------- ---------
-certifi       2022.6.15
-numpy         1.23.2
-opencv-python 4.6.0.66
-pip           22.1.2
-setuptools    63.4.1
-wheel         0.37.1
-wincertstore  0.2
+--------------- ---------
+certifi         2022.6.15
+cycler          0.11.0
+fonttools       4.37.0
+kiwisolver      1.4.4
+matplotlib      3.5.3
+numpy           1.23.2
+opencv-python   4.6.0.66
+packaging       21.3
+pandas          1.4.3
+Pillow          9.2.0
+pip             22.1.2
+pyparsing       3.0.9
+python-dateutil 2.8.2
+pytz            2022.2.1
+setuptools      63.4.1
+six             1.16.0
+wheel           0.37.1
+wincertstore    0.2
 ```
 
 
