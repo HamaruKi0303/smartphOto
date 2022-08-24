@@ -15,9 +15,9 @@ import time
 import pandas as pd
 from matplotlib import pyplot as plt
 
-class Android2PC:
+class SmartphOto:
 
-    def __init__(self, device_id, adb_exe_path, temp_dir, search_th=0.9):
+    def __init__(self, device_id, adb_exe_path, temp_dir, capture_dir, search_th=0.9):
         self.device_id      = device_id
         self.adb_exe_path   = adb_exe_path
         self.share_capture_image = ""
@@ -25,6 +25,7 @@ class Android2PC:
         self.temp_dict      = {}
         self.th             = 0.7
         self.search_th      = search_th
+        self.capture_dir    = capture_dir
 
         self._load_temp_image()
 
@@ -63,7 +64,7 @@ class Android2PC:
         temp = cv2.imread(temp_path)
 
         capture_flag, capture_image = self._capture_screen()
-        # cv2.imwrite('_screen.png', img)
+        cv2.imwrite(self.capture_dir + '/_realtime_screen.png', capture_image)
 
         # print("capture_image.shape  :{}".format(capture_image.shape))
         # print("temp.shape           :{}".format(temp.shape))
