@@ -16,9 +16,13 @@ import time
 import pandas as pd
 from matplotlib import pyplot as plt
 
-class SmartphOto:
+from PIL import ImageGrab
 
-    def __init__(self, device_id, adb_exe_path, temp_dir, capture_dir, search_th=0.9):
+import pyautogui
+
+class DeskOto:
+
+    def __init__(self, temp_dir, capture_dir, device_id="", adb_exe_path="", search_th=0.9):
         self.device_id      = device_id
         self.adb_exe_path   = adb_exe_path
         self.share_capture_image = ""
@@ -27,6 +31,7 @@ class SmartphOto:
         self.th             = 0.7
         self.search_th      = search_th
         self.capture_dir    = capture_dir
+        self.capture_area   = (0, 0, 2560, 1440)
 
         self._load_temp_image()
 
@@ -34,29 +39,21 @@ class SmartphOto:
     # common section
     #
     def _capture_screen(self):
-        '''
-            スクリーンキャプチャを取るための関数
-            PNG形式で取得
-
-        Returns
-        ----------
-        img : opencv Mat
-            OpenCV形式のイメージ
-
-        '''
-
-        try:
-            result = subprocess.check_output([self.adb_exe_path, '-s', self.device_id, 'exec-out', 'screencap', '-p'])
-            return 1, cv2.imdecode(numpy.frombuffer(result, numpy.uint8), cv2.IMREAD_COLOR)
-        except:
-            print("image none")
-            return -1, -1
+        # 指定した領域内をクリッピング
+        capture_img_PIL = ImageGrab.grab(bbox=self.capture_area)   
+        capture_img_cv  = cv2.cvtColor(np.array(capture_img_PIL, dtype=np.uint8), cv2.COLOR_RGB2BGR)
+        return 1, capture_img_cv
 
     def _tap(self, sarch_temp_key_list, temp_key):
         self._tap_PC2Android(x=sarch_temp_key_list[temp_key][0], y=sarch_temp_key_list[temp_key][1])
 
     def _tap_PC2Android(self, x, y):
         result = subprocess.check_output([self.adb_exe_path, '-s', self.device_id, 'shell', 'input', 'tap', str(x), str(y)])
+
+    def _click_PC2Desk(self, x, y):
+        pyautogui.moveTo(x, y, duration=2)
+        
+        pyautogui.click()
 
     # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     # Sequential section
@@ -71,8 +68,8 @@ class SmartphOto:
         capture_flag, capture_image = self._capture_screen()
         cv2.imwrite(self.capture_dir + '/_realtime_screen.png', capture_image)
 
-        # print("capture_image.shape  :{}".format(capture_image.shape))
-        # print("temp.shape           :{}".format(temp.shape))
+        print("capture_image.shape  :{}".format(capture_image.shape))
+        print("temp.shape           :{}".format(temp.shape))
 
         result = cv2.matchTemplate(capture_image, temp, cv2.TM_CCOEFF_NORMED)
         # 最も類似度が高い位置を取得する。
@@ -88,8 +85,9 @@ class SmartphOto:
             return False
 
         # adb shell input touchscreen tap x y
-        self._tap_PC2Android(maxLoc[0]+temp.shape[1]/2, maxLoc[1]+temp.shape[0]/2)
-
+        # self._tap_PC2Android(maxLoc[0]+temp.shape[1]/2, maxLoc[1]+temp.shape[0]/2)
+        self._click_PC2Desk(maxLoc[0]+temp.shape[1]/2, maxLoc[1]+temp.shape[0]/2)
+        
         return True
 
 
@@ -236,25 +234,20 @@ if __name__ == "__main__":
     adb_exe_path    = r"d:\Local_Project\6000_Polaris\002_Autoroid\sdk\platform-tools_r33.0.2-windows\platform-tools\adb.exe"
     device_id       = "f6a19bcb"
     temp_dir        = r"image\azuren"
-
+    capture_dir     = r"image\_capture"
+    
     # ---------------------------------------------------
-    # connect android 2 pc
+    # connect desk 2 pc
     #
-    A2P = Android2PC(device_id=device_id, adb_exe_path=adb_exe_path, temp_dir=temp_dir)
-
-    # A2P._load_temp_image()
-    # sarch_temp_key_list = A2P.tap_temp_image5_Parallel()
-    # pprint.pprint(sarch_temp_key_list)
-
-
+    D2P = DeskOto(capture_dir=capture_dir, temp_dir=temp_dir)
 
     # ---------------------------------------------------
     # capture image
     #
-    A2P_flag, A2P_image = A2P._capture_screen()
+    D2P_flag, D2P_image = D2P._capture_screen()
 
-    if(A2P_flag==1):
-        cv2.imwrite('image/A2P_image_sample.jpg', A2P_image)
+    if(D2P_flag==1):
+        cv2.imwrite(capture_dir + '/D2P_image_sample.jpg', D2P_image)
     
 
     raise
