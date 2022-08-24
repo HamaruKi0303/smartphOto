@@ -1,6 +1,8 @@
 # smartphOto
 
 
+![](doc\structure2.png)
+
 ## 環境の構築
 
 ### 仮想環境の作成
