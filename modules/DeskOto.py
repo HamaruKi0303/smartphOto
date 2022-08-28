@@ -32,6 +32,7 @@ class DeskOto:
         self.search_th      = search_th
         self.capture_dir    = capture_dir
         self.capture_area   = (0, 0, 2560, 1440)
+        # self.capture_area   = (2560, 0, 2560+1920, 1080)
 
         self._load_temp_image()
 
