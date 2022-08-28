@@ -2,6 +2,11 @@
 
 
 正式版になり次第，note等で販売する予定です．
+
+## 概要
+
+スマホゲームをPCから操作して自動化するシステムです．
+
 ![](https://github.com/HamaruKi0303/smartphOto/blob/main/doc/structure2.png)
 
 
@@ -225,7 +230,11 @@ max value:  0.305, position: (1047, 305), temp_path: image\sample\back.png
 
 # Desk0to
 
-＊デスクトップゲーム用のモジュールです．
+デスクトップゲーム用のモジュールです．
+
+## 概要
+
+PCゲームをPCから操作して自動化するシステムです．
 
 ## 環境の構築
 
