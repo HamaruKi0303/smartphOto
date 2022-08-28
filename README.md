@@ -1,5 +1,6 @@
-# smartphOto
+# smartphOto (β版)
 
+正式版になり次第，note等で販売する予定です．
 
 ![](doc\structure2.png)
 
