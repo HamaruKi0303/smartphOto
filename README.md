@@ -148,8 +148,6 @@ adb -s {シリアル} pull /sdcard/screenshot.png ~/Desktop/
 ```
 
 
-![](https://i.imgur.com/IJYv4GC.jpg)
-
 ![](https://github.com/HamaruKi0303/smartphOto/blob/main/image/_capture/screenshot_demo.png)
 
 
