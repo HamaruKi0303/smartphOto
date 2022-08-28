@@ -221,6 +221,8 @@ max value:  0.305, position: (1047, 305), temp_path: image\sample\back.png
 
 # Desk0to
 
+＊デスクトップゲーム用のモジュールです．
+
 ## 環境の構築
 
 ### 必要パッケージのインストール
