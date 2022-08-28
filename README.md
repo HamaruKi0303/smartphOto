@@ -226,6 +226,13 @@ max value:  0.305, position: (1047, 305), temp_path: image\sample\back.png
 ```
 
 
+## 稼働動画
+
+https://www.youtube.com/watch?v=98YfDWTt2qc
+
+
+
+
 # Desk0to
 
 デスクトップゲーム用のシステムです．
@@ -241,4 +248,9 @@ PCゲームをPCから操作して自動化するシステムです．
 ```
 pip install pyautogui
 ```
+
+
+## 稼働動画
+
+https://www.youtube.com/watch?v=98YfDWTt2qc
 
