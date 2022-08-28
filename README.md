@@ -228,10 +228,7 @@ max value:  0.305, position: (1047, 305), temp_path: image\sample\back.png
 
 ## 稼働動画
 
-https://www.youtube.com/watch?v=98YfDWTt2qc
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/98YfDWTt2qc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+[![](https://img.youtube.com/vi/_3_Pzbcc8PE/0.jpg)](https://www.youtube.com/watch?v=_3_Pzbcc8PE)
 
 # Desk0to
 
@@ -252,5 +249,5 @@ pip install pyautogui
 
 ## 稼働動画
 
-https://www.youtube.com/watch?v=98YfDWTt2qc
+[![](https://img.youtube.com/vi/98YfDWTt2qc/0.jpg)](https://www.youtube.com/watch?v=98YfDWTt2qc)
 
