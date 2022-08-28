@@ -1,6 +1,9 @@
-# smartphOto
+# smartphOto (β版)
 
+
+正式版になり次第，note等で販売する予定です．
 ![](https://github.com/HamaruKi0303/smartphOto/blob/main/doc/structure2.png)
+
 
 
 ## 環境の構築
